@@ -1,0 +1,27 @@
+<app-search (isMovie)="isMovieAvailable($event)"></app-search>
+<div class="container d-flex justify-content-evenly mt-5 flex-wrap product-list">
+    <div class="card shadow product-card" *ngFor="let movie of movieData">
+        <div class="text-center">
+        <img [src]="movie?.info?.image_url" class="product-img pt-2" alt="..." />
+        </div>
+        <div class="card-body product-text">
+        <div class="text-center">
+            <h5 class="card-title">
+                {{ movie?.title }}
+            </h5>
+        </div>
+        <h6 class="card-title">Year: {{ movie?.year }}</h6>
+        <h6 class="card-text" *ngIf="movie?.info?.release_date">
+            Release Date: {{ movie?.info?.release_date | date:"yyyy/MMM/dd"}}
+        </h6>
+        <h6 class="d-flex justify-content-between">
+            <span *ngIf="movie?.info?.rank">Rank: {{ movie?.info?.rank }}</span><span *ngIf="movie?.info?.rating">Rating: {{ movie?.info?.rating }}</span>
+        </h6>
+        <a routerLink="/movie" class="btn btn-primary" (click)="showMovie(movie)">View More</a>
+        </div>
+    </div>
+</div>
+
+<div class="text-white text-center" *ngIf="isMovie">
+    <h3>We didn't find any matches. Browse our most popular TV shows and movies.</h3>
+</div>

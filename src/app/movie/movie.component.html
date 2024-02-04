@@ -1,0 +1,37 @@
+<div class="container pt-4">
+    <div class="movie-container">
+        <div class="text-center pb-2">
+            <img [src]="movie?.info?.image_url" class="" alt="..." />
+        </div>
+        <div class="movie-desc">
+            <div class="text-center pb-2">
+                <h5 class="">
+                    {{ movie?.title }}
+                </h5>
+            </div>
+            <div class="pb-2">
+                {{movie.info?.plot}}
+            </div>
+            <div class="pb-2"><span class="fw-bold">Director:</span> <span *ngFor="let director of movie?.info?.directors"> {{director}}</span></div>
+            <div class="pb-2"><span class="fw-bold">Actors:</span> <span *ngFor="let actor of movie?.info?.actors"> {{actor}}</span></div>
+            <div class="pb-2"><span class="fw-bold">Geners:</span> <span *ngFor="let genre of movie?.info?.genres"> {{genre}}</span></div>
+            <h6 class="pb-2" *ngIf="movie?.year">
+                <span>Year: {{ movie?.year }}</span>
+            </h6>
+            <h6 class="pb-2" *ngIf="movie?.info?.running_time_secs">
+                <span>Time: {{ movie?.info?.running_time_secs }}</span>
+            </h6>
+            <h6 class="pb-2" *ngIf="movie?.info?.release_date">
+                <span>Date: {{ movie?.info?.release_date | date }}</span>
+            </h6>
+            <h6 class="pb-2" *ngIf="movie?.info?.rank">
+                <span>Rank: {{ movie?.info?.rank }}</span>
+            </h6>
+            <h6 class="pb-2" *ngIf="movie?.info?.rating">
+                <span>Rating: {{ movie?.info?.rating }}</span>
+            </h6>
+            <button class="btn btn-primary">Start Watching</button>
+            <a routerLink="/home" class="btn btn-primary mx-3">Go To Home</a>
+        </div>
+    </div>
+</div>

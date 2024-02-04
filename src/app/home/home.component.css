@@ -1,0 +1,16 @@
+.product-img {
+  width: 18.75rem;
+  height: 25rem;
+}
+.product-card {
+  width: 22rem;
+}
+
+.product-text {
+  background-color: #f9f8fc;
+}
+
+.product-list {
+  row-gap: 3rem;
+  column-gap: 6rem;
+}
